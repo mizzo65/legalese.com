@@ -1,6 +1,8 @@
+<!--TODO: HTML of (1) Terms of Use (2) Privacy Policy (3) FAQs; and (4) XML of CLA. References to be incorporated when ready-->
+
 <!-- Drafting Notes:
-1. Do not use "we" to refer to signee and ourselves. Use "the Parties" instead. "we" is formally defined as referring only to us (i.e. people behind Legalese)-->
-<!--TODO: HTML of (1) Terms of Use (2) Privacy Policy (3) FAQs. XML of CLA. References to be incorporated when ready-->
+1. "Legalese" refers to the service/software
+2. "We or Us" refers to the company  -->
 
 <?!= data.xml_declaration ?>
 <Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/" templateSpec="eula.indt">
@@ -11,136 +13,154 @@
 	<chapter_header override="startParagraph=StartParagraph.ANYWHERE">Legalese End-User Software License Agreement</chapter_header>
 
 <!--Bringing key terms to notice of signee-->
+<!--TODO: Check to see if x-refs work; if it does, then rinse and repeat for rest of EULA -->
+	<para_1>Please read <definition xname="this Agreement" format="definition">this Agreement</definition> carefully. By using all or any part of <definition xname="Legalese" format="definition">Legalese</definition>, you are agreeing to <definition xname="this Agreement" format="definition">this Agreement</definition>. You also agree that <definition xname="this Agreement" format="definition">this Agreement</definition> is like any written negotiated agreement signed by you, and shall be entirely enforceable against you. If you do not agree to the terms of <definition xname="this Agreement" format="definition">this Agreement</definition>, you are not authorised to use <definition xname="Legalese" format="definition">Legalese</definition>. At all times, please be reminded that Legalese is not intended to substitute for legal or any other professional advice. Documents generated on <definition xname="Legalese" format="definition">Legalese</definition> -- whether generic or customised -- may fail to meet your needs.</para_1>
 
-	<para_1>Please read this Agreement carefully. By using all or any portion of Legalese, you are agreeing to this Agreement. You also agree that this Agreement is like any written negotiated agreement signed by you, and shall be entirely enforceable against you. If you do not agree to the terms of this Agreement, you are not authorised to use Legalese. At all times, please be reminded that Legalese is not intended to substitute for legal or any other professional advice. Documents generated -- whether generic or customised -- may fail to meet your needs.</para_1>
-
-<!--Recitals (i.e. the Agreement details): parties' names, date of agreement-->
-
-	<para_1><span_smallcaps>This agreement</span_smallcaps> is made this <? if (data.agreement_date) { ?><?= data.agreement_date ?><?} else {?><textvar name="Output Date" /><?}?> between:---</para_1>
+<!--Recitals (i.e. the Agreement details): parties' names, date of agreement, preambles-->
+	<para_1><span_smallcaps>This Agreement</span_smallcaps> is made this <? if (data.agreement_date) { ?><?= data.agreement_date ?><?} else {?><textvar name="Output Date" /><?}?> between:-</para_1>
 
 	<parties><?!= include("inc_party", data, data.company) ?> ("<?= data.company.short_name?>") and</parties>
 	<? if (data.user.address) {?>
 	<parties><?!= include("inc_party", data, data.user) ?> ("<b>you</b>")</parties>
 	<? } else { ?>
-    <parties><?= data.user.name ?> &lt;<?=data.user.email?>&gt; (<b>"you"</b>),</parties>
+    <parties><?= data.user.name ?> &lt;<?=data.user.email?>&gt; ("<b>you</b>"),</parties>
 	<? } ?>
 	<para_1>(collectively, the "<b>Parties</b>" and each a "<b>Party</b>".</para_1>
 
-<!--Preamble (not legally enforceable as under this Agreement). It sets out what has already been agreed.-->
-
 	<para_1><span_smallcaps>Whereas:-</span_smallcaps></para_1>
 
-	<recitals>You desire to use any or all portions of Legalese; and</recitals>
+	<recitals>You desire to access and/or use any or all portions of Legalese; and</recitals>
 	<recitals override="spaceBefore=0">we desire to demonstrate the software capabilities of Legalese; but</recitals>
 	<recitals override="spaceBefore=0">we do not want to get into trouble with you or the law.</recitals>
-	<recitals override="spaceBefore=0">You have on <? if (data.agreement_date) { ?><?= data.agreement_date ?><?} else {?><textvar name="Output Date" /><?}?>, indicated your understanding and acceptance of the following:-</recitals>
+	<recitals override="spaceBefore=0">You have on <? if (data.agreement_date) { ?><?= data.agreement_date ?><?} else {?><textvar name="Output Date" /><?}?>, indicated your understanding and acceptance that:-</recitals>
 	<bullets>Legalese does not perform any validation on your behalf; what you type in Legalese is exactly what will appear in any of the documents customised and/or generated on Legalese.</bullets>
 	<bullets>Once signed PDFs have been generated on Legalese, no further changes can be made to any documents so generated.</bullets>
-	<!---probably need a FAQ section to tell people what to do if they want to retract it -->
 	<bullets>As documents customised and/or generated by Legalese <b>may</b>, through your own action and none of ours, be or become <b>legally binding documents</b>, please proceed with caution and care.</bullets>
-	<bullets>We are <b>neither lawyers nor legal advisers</b>. Legalese and we (including any of our employees and associates)<b> do not </b> give nor purport to give you any legal advice. We wish only to provide you with access to Legalese and self-help materials aimed at helping you customise and/or generate documents for whatever reasons you may have. <b>For any legal advice or review, please seek the assistance of a lawyer.</b> </bullets>
-	<bullets>You understand and accept Legalese's <a hhref="http://www.legalese.io/tos.html?from=eula">Terms of Service</a> and <a hhref="http://www.legalese.io/tos-pp.html?from=eula">Legalese's Privacy Policy</a>.</bullets>
+	<bullets>We are <b>neither lawyers nor legal advisers</b>. Legalese<b> does not </b> give nor purport to give you any legal advice. We wish only to provide you with access to Legalese and self-help materials aimed at helping you customise and/or generate documents for whatever reasons you may have. <b>For any legal advice or review, please seek the assistance of a lawyer.</b> </bullets>
+	<bullets>You understand and accept our <a hhref="http://www.legalese.io/tos.html?from=eula">Terms of Service</a> and <a hhref="http://www.legalese.io/tos-pp.html?from=eula">Privacy Policy</a>.</bullets>
 
+<!--Start of the legally binding agreement-->
 	<para_1><span_smallcaps>These are the terms and conditions to which the Parties agree:-</span_smallcaps>-</para_1>
 
+<!--Clause 1: Definitions and Interpretations-->
 	<a_left_sidehead>Definitions and Interpretation</a_left_sidehead>
 
-	<definition>Adobe EchoSign	is now known as Adobe Document Cloud, lol.</definition>
+	<definition>Adobe Document Cloud refers to the suite of services, including eSign services, offered by Adobe Systems Incorporated.</definition>
 
-	<definition>Commercial Services refers to services which Legalese may be offered in affiliation with, and include without limitation technical support services, business advisory services, corporate secretarial services, information services, and/or advertising. </definition>
+	<definition>Commercial Services  refers to services which Legalese may be offered in affiliation with, and include without limitation, technical support services, business advisory services, corporate secretarial services, information services, and/or advertising.</definition>
 
-	<definition>Google		refers to Google Inc..</definition>
+  <definition>DocuSign  refers to the electronic signature technology and digital transaction management services for facilitating electronic exchanges of contracts and signed documents offered by DocuSign Inc.
 
-	<definition>Google Docs		refers to the suite of Internet-based applications from Google, including without limitation word processing, spreadsheet, presentations, form creation, and cloud storage.</definition>
+	<definition>Google refers to Google Inc..</definition>
 
-	<definition>Google Drive		refers to the cloud storage solution offered by Google for storing files.</definition>
+	<definition>Google Docs  refers to the suite of Internet-based applications from Google, including without limitation word processing, spreadsheet, presentations, form creation, and cloud storage functionalities.</definition>
 
-	<definition xname="legalese">Legalese	refers to the online software application platform provided by us at <a hhref="http://www.legalese.io">http://www.legalese.io</a> using amongst others, Third Party Online Services, and includes without limitation document administration, customisation, management, and generation features.</definition>
+	<definition>Google Drive refers to the cloud-based file storage solution offered by Google.</definition>
+
+  <definition>HelloSign refers to the cloud-based electronic signature tool.</definition>
+
+	<definition xname="legalese">Legalese  refers to the online software application platform provided by us at <a hhref="http://www.legalese.io">http://www.legalese.io</a> using amongst others, Third Party Online Services, and may include document administration, customisation, management, and/or generation features.</definition>
 
 	<!-- consider using a SaaS definition because most of this stuff runs in Google Apps or InDesign on Meng's server. -->
 	<!-- http://www.oracle.com/us/products/applications/crmondemand/software-service-us-439842.pdf -->
 	<!-- http://www.bl.uk/aboutus/foi/transparency/contracts/Contract%20SMC8263.pdf -->
 
-	<definition>PDF	refers to Portable Document Format, an open standard file format maintained by the International Organisation for Standardisation.</definition>
+	<definition>PDF  refers to Portable Document Format, an open standard file format maintained by the International Organisation for Standardisation.</definition>
 
-	<definition>Third-Party Online Services	refers to third parties offering goods, information, software and/or services, including without limitation Google Drive, Adobe EchoSign, Adobe Document Cloud, DocuSign, and HelloSign.</definition>
+	<definition>Third-Party Online Services  refers to third parties offering goods, information, software and/or services, including without limitation Google Drive, Adobe Document Cloud, DocuSign, and HelloSign.</definition>
 
-	<definition>"we" or "us"	refers to Legalese.io Pte. Ltd. (UEN: xxxxxx), a wholly owned subsidiary of JFDI.Asia Pte. Ltd., with its registered place of business at [1 FutureSoon Singapore 123456]</definition>
+<!--TODO: Fill in details of incorporated entity-->
+	<definition>we or us refers to Legalese.io Pte. Ltd. (UEN: xxxxxx), a wholly owned subsidiary of JFDI.Asia Pte. Ltd., with its registered place of business at [1 FutureSoon Singapore 123456]</definition>
 
-	<definition>XML	refers to extensible markup language, a technical standard developed by the World Wide Web Consortium.</definition>
+	<definition>XML  refers to extensible markup language, a technical standard developed by the World Wide Web Consortium.</definition>
 
-	<definition>You	means you with the name and details first set out above, and shall include any legal entity that used or uses Legalese and on whose behalf it is used; for example, and as applicable, your employer.</definition>
+	<definition>You  refers to you as first set out in the above, and shall include any legal entity that used or uses Legalese and on whose behalf it is used; for example, and as applicable, your employer.</definition>
+
+  <numbered_2_para>In this Agreement, unless specified otherwise, general words shall not be given a restrictive meaning by reason of the fact that they are followed by particular examples intended to be embraced by the general words.</numbered_2_para>
 
 	<numbered_2_para>The headings in this Agreement are for convenience only and shall not affect the interpretation hereof.</numbered_2_para>
 
 	<numbered_2_para>Unless the context otherwise requires, references to the singular number shall include references to the plural number and vice versa, references to natural persons shall include bodies corporate, and the use of any gender shall include all genders.</numbered_2_para>
 
+<!--What Legalese is provided for-->
 	<a_left_sidehead>Using Legalese</a_left_sidehead>
 
-	<numbered_2_para>We provide Legalese in a bid to help people automate the customisation and/or generation of documents in different formats (including without limitation, <span_smallcaps>XML, PDF</span_smallcaps>, Google Docs, Microsoft Word, and <span_smallcaps>docx</span_smallcaps>).</numbered_2_para>
+	<numbered_2_para>We provide Legalese in a bid to help people customise and/or generate documents in different formats (including without limitation, <span_smallcaps>XML, PDF</span_smallcaps>, Google Docs, Microsoft Word, and <span_smallcaps>docx</span_smallcaps>).</numbered_2_para>
 
-	<numbered_2_para>Without prejudice to any terms in this Agreement, in particular the sections entitled <i>No Warranty</i>, <i>Disclaimer and Indemnity</i> and <i>Limitation of Liability</i>, should you intend to use any document (or part thereof) customised and/or generated (whether in full or in part) on Legalese for final execution, lodgement, filing, seal, signature, or delivery, please do so <b>at your own risk </b>, and irrevocably affirm that you:-</numbered_2_para>
+<!--Special carve out for legal docs-->
+<!--TODO: Can we internaly reference the clauses such that (1) they appear as hyperlinks and (2) any changes to the source changes the references as well?-->
+	<numbered_2_para>Without prejudice to any terms in this Agreement, in particular the sections entitled <i>No Warranty</i>, <i> Indemnity</i> and <i>Limitation of Liability</i>, any use or intention to use any document (or part thereof) customised and/or generated (whether in full or in part) on Legalese for final execution, lodgement, filing, seal, signature, and/or delivery, shall be done <b>solely at your own risk </b>, and you hereby irrevocably affirm that you:-</numbered_2_para>
 	<numbered_3_para>do so personally for yourself only in any matter or proceeding to which you are a party; or</numbered_3_para>
 	<numbered_3_para>are a legal counsel (by whatever name called) in an entity acting solely for the entity in a matter to which you are a party; or</numbered_3_para>
 	<numbered_3_para>are a qualified lawyer currently entitled and certified to practise law in the relevant jurisdiction; or</numbered_3_para>
 	<numbered_3_para>are a person explicitly exempted from the requirements limiting the practise of law to qualified lawyers in the relevant jurisdiction; or</numbered_3_para>
-	<numbered_3_para>have obtained legal advice and counsel from qualified legal professionals and lawyers on the same, </numbered_3_para>
-	<numbered_2_para>before engrossing any such document(s) for final execution, lodgement, filing, seal, signature, or delivery.</numbered_2_para>
+	<numbered_3_para>have obtained legal advice and counsel from qualified legal professionals and lawyers on the same. </numbered_3_para>
+  <numbered_2_para>For the avoidance of doubt, any access to and/or use of Legalese is not intended to and does not create a solicitor-client relationship between the Parties.</numbered_2_para>
 
-	<numbered_2_para>Please do not misuse Legalese. Your usage of Legalese is subject always to this Agreement, and for the avoidance of doubt, any usage shall be only to the extent as permitted by law. We reserve the sole and absolute right to suspend or terminate our provision of Legalese to you if you do not comply with this Agreement, our terms, policies, or if we are investigating suspected misconduct.</numbered_2_para>
+<!--Usage of Legalese contained within legal limits + we can refuse provision-->
+	<numbered_2_para>Your use of and/or access to Legalese is subject always to this Agreement and any such use and/or access shall be only to the extent as permitted by law. We reserve the sole and absolute right to suspend or terminate our provision of Legalese to you for any reason (including without limitation, if you do not comply with this Agreement, such terms and/or policies as may be imposed by us from time to time, or in the event we are investigating suspected misconduct).</numbered_2_para>
 
-	<numbered_2_para>Using Legalese does not give you ownership of any intellectual property rights in Legalese or the content you access. This Agreement also does not grant you the right to use any branding or logo used in Legalese. You are not allowed to remove, obscure, or alter any legal notices displayed in or along with Legalese.</numbered_2_para>
+<!--No IP rights-->
+	<numbered_2_para>Using Legalese does not give you ownership of any intellectual property rights in Legalese or the content you access. This Agreement does not grant you the right to any marks, branding, and/or logo used in Legalese. You are not allowed to remove, obscure, or alter any legal notices displayed in or along with Legalese.</numbered_2_para>
 
+<!--Third party online services-->
 	<a_left_sidehead>Third-Party Online Services</a_left_sidehead>
-	<numbered_2_para>We may rely upon or facilitate (i) your access to websites maintained by us or our affiliates; or (ii) Third-Party Online Services which <b>may</b> be offered for a fee, or an expectation of a fee, gain, or reward. Your access to and use of any website or Third-Party Online Services is governed by the terms, conditions, disclaimers, and/or notices found on such site or otherwise associated with such services. You agree that such Third-Party Online Services are independent of and separate from us and Legalese.</numbered_2_para>
+	<numbered_2_para>In our provision of Legalese, we may rely on:-</numbered_2_para>
+    <numbered_3_para>websites maintained by us or our affiliates; and/or</numbered_3_para>
+    <numbered_3_para>Third-Party Online Services, </numbered_3_para>
+  <numbered_2_para>which <b>may</b> be offered for and/or an expectation of a fee, gain, or reward. Your access to and/or use of any such website or Third-Party Online Services is governed by the terms, conditions, disclaimers, and/or notices found on such website or otherwise associated with such services. You agree that such websites and/or Third-Party Online Services are independent of and separate from us and Legalese.</numbered_2_para>
 
+  <numbered_2_para>We do not warrant, endorse, guarantee, or assume responsibility for any product or service that may be advertised or offered by a third party or Third Party Online Services through Legalese or any hyperlinked website or service, and we will not be a party to any transactions, if any, between you and any such party. </numbered_2_para>
+
+<!--Commercial Services-->
 	<numbered_2_para>Legalese may also be offered in affiliation with Commercial Services, and you agree that:-</numbered_2_para>
-	<numbered_3_para>such services are independent of us and Legalese;</numbered_3_para>
-	<numbered_3_para>use of Legalese does not automatically entitle you to Commercial Services; and</numbered_3_para>
-	<numbered_3_para>any use of Commercial Services shall not be construed as being made in satisfaction of any expectation of fee, gain, or reward arising from your use of Legalese.</numbered_3_para>
+  	<numbered_3_para>such services are independent of us and Legalese;</numbered_3_para>
+  	<numbered_3_para>use of and/or access to Legalese does not automatically entitle you to Commercial Services; and</numbered_3_para>
+  	<numbered_3_para>any use of Commercial Services shall not be construed as being made in satisfaction of any expectation of fee, gain, or reward arising from your use of and/or access to Legalese.</numbered_3_para>
 
+<!--No warranty (forward-looking)-->
 	<a_left_sidehead>No Warranty</a_left_sidehead>
 
-	<numbered_2_para>We provide Legalese on an "as is" and "as available" basis. We make <b>no commitments</b> about the content within Legalese, the specific functions of Legalese, nor their reliability, availability, or ability to meet your needs. Your access to and use of any output files and/or document(s) customised and/or generated on Legalese is entirely at your own risk. For the avoidance of doubt, use of Legalese is not intended to and does not create a solicitor-client relationship between you and us. </numbered_2_para>
+	<numbered_2_para>We provide Legalese on an <i>as is</i> and <i>as available</i> basis. We make <b>no commitments</b> about the content within Legalese, its specific functions, nor any of their reliability, availability, and/or ability to meet your needs. Your access to and/or use of any output file and/or document customised and/or generated on Legalese is entirely at your own risk.</numbered_2_para>
 
-	<numbered_2_para>To the maximum extent permitted by applicable law, Legalese is provided without warranties of any kind, whether express or implied, including but not limited to, implied warranties of merchantability, fitness for a particular purpose, or non-infringement. No advice or information, whether oral or written, obtained by you from us or through Legalese will create any warranty not expressly stated herein. Without limiting the foregoing, we do not warrant that the content provided on or accessed via Legalese is accurate, reliable, or correct; that Legalese will meet your requirements; that Legalese will be available at any particular time or location, uninterrupted or secure; that any defects or errors will be corrected; or that Legalese is free of viruses or other harmful components. Any content downloaded or otherwise obtained through the use of Legalese is done so at your own risk and you shall be solely responsible for any damage to your computer system or loss of data that results from such download or use of Legalese. </numbered_2_para>
+	<numbered_2_para>To the maximum extent permitted by applicable law, Legalese is provided without warranties of any kind, whether express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, and/or non-infringement. No advice or information, whether oral or written, obtained by you from us or through Legalese will create any warranty not expressly stated in this Agreement. Without limiting the foregoing, we <b>do not warrant</b>:-</numbered_2_para>
+    <numbered_3_para>that content provided on or accessed via Legalese is accurate, reliable, or correct; or</numbered_3_para>
+    <numbered_3_para>that Legalese will meet your requirements ot achieve any intended result; or
+    <numbered_3_para>that Legalese will be available at any particular time or location, uninterrupted or secure; or</numbered_3_para>
+    <numbered_3_para>that any defects or errors will be corrected; or</numbered_3_para>
+    <numbered_3_para>that Legalese is free of viruses and/or other harmful components.</numbered_3_para>
 
-	<numbered_2_para>For the avoidance of doubt, Legalese does not warrant, endorse, guarantee, or assume responsibility for any product or service that may be advertised or offered by a third party or Third Party Online Services through Legalese or any hyperlinked website or service, and we will not be a party to or in any way monitor transaction between you and any such party. </numbered_2_para>
+<!-- Limitation of liability (i.e. even if liable, we try to impose caps on damages/losses enforceable)-->
+  <a_left_sidehead>Limitation of Liability</a_left_sidehead>
+  <numbered_2_para>To the maximum extent permitted by applicable law, we, our affiliates, agents, directors, officers, employees, suppliers, or licensors <b>shall not be liable</b> for any direct, indirect, punitive, incidental, special, consequential, or exemplary damages, including damages for lost profits, lost revenues, financial losses, loss of goodwill, loss of use, loss of data, and/or other intangible losses, arising out of and/or relating to the use and/or inability to use Legalese, hacking, tampering and/or other unauthorised access or use of Legalese, your account, and/or the information therein contained. This limitation of liability clause applies whether the alleged liability is based on contract, tort, negligence, strict liability, or any other basis, even if we have been advised of the possibility of such damage.</numbered_2_para>
 
-	<a_left_sidehead>Disclaimer and Indemnity</a_left_sidehead>
-	<numbered_2_para>To the maximum extent permitted by applicable law, in no event shall we, our affiliates, agents, directors, officers, employees, suppliers, or licensors be liable for any direct, indirect, punitive, incidental, special, consequential, or exemplary damages, including without limitation damages for lost profits, revenues, financial losses, goodwill, use, data or other intangible losses, that result from the use of or inability to use Legalese. Under no circumstances will we be responsible for any damage, loss, or injury resulting from hacking, tampering or other unauthorised access or use of Legalese or your account or the information therein contained.</numbered_2_para>
-
-	<numbered_2_para>You will hold harmless and indemnify us and our affiliates, officers, agents, and employees from any claim, suit, or action arising from and/or related to the use of Legalese or violation of this Agreement, including any liability or expense arising from claims, losses , damages, suits, judgments, litigation costs, arbitration costs, legal fees, and lawyers' fees.</numbered_2_para>
-
-	<a_left_sidehead>Limitation of Liability</a_left_sidehead>
-
-	<numbered_2_para>To the maximum extent permitted by applicable law, we assume no liability or responsibility for (i) any errors, mistakes, omissions, or inaccuracies of content; (ii) any personal injury or property damage, of any nature whatsoever, arising out of, in connected with, or resulting from your access to or use of Legalese; (iii) any bugs, viruses, trojan horses, or the like that may be transmitted to or through Legalese by any third party; (iv) any loss or damage incurred as a result of the use of any content posted, emailed, transmitted, or otherwise made available through Legalese; and/or (v) any user content or the defamatory, offensive, or illegal conduct of any third party. This limitation of liability clause applies whether the alleged liability is based on contract, tort, negligence, strict liability, or any other basis, even if we have been advised of the possibility of such damage. This limitation of liability clause shall apply to the fullest extent permitted by law in the applicable jurisdiction.</numbered_2_para>
-
-	<numbered_2_para>If the <i>No Warranty</i>, <i>Disclaimer and Indemnity</i> and <i>Limitation of Liability</i> sections provided above cannot be given local legal effect according to their terms, reviewing courts, mediators, or arbitrators shall apply local law that most closely approximates an absolute waiver of all civil liability in connection with Legalese.</numbered_2_para>
+  <!-- Indemnity clause -->
+  <a_left_sidehead>Indemnity</a_left_sidehead>
+  <numbered_2_para>You will hold harmless and indemnify us and our affiliates, officers, directors, suppliers, licensors, agents, and employees from any claim, suit, or action arising from and/or related to the access to Legalese, use of Legalese, and/or violation of this Agreement, including without limitation any liability or expense arising from claims, losses, damages, suits, judgments, litigation costs, arbitration costs, legal fees, and/or lawyers' fees.</numbered_2_para>
 
 	<a_left_sidehead>About this Agreement</a_left_sidehead>
-	<numbered_2_firstbold>Remedies. No remedy conferred by any of the provisions of this Agreement is intended to be exclusive of any other remedy which is otherwise available at law, in equity, by statute or otherwise, and each and every other remedy shall be cumulative and shall be in addition to every other remedy given hereunder or now or hereafter existing at law, in equity, by statute or otherwise. The election of any one or more of such remedies by either of the Parties shall not constitute a waiver of the right to pursue any other available remedies.</numbered_2_firstbold>
 
-	<numbered_2_firstbold>Amendments. No amendment or variation of this Agreement shall be effective unless in writing and signed by or on behalf of both you<b> and </b>us.</numbered_2_firstbold>
+	<numbered_2_firstbold>Remedies. No remedy conferred by any of the provisions of this Agreement is intended to be exclusive of any other remedy which is otherwise available at law, in equity, by statute or otherwise, and each and every other remedy shall be cumulative and shall be in addition to every other remedy given hereunder or now or hereafter existing at law, in equity, by statute or otherwise. The election of any one or more of such remedies by us shall not constitute a waiver of the right to pursue any other available remedies.</numbered_2_firstbold>
 
-	<numbered_2_firstbold>Severance. If any provision of this Agreement or part thereof is rendered void, illegal or unenforceable by any legislation to which it is subject, it shall be rendered void, illegal or unenforceable to that extent and no further.</numbered_2_firstbold>
+	<numbered_2_firstbold>Amendments. We reserve the right, at any time and from time to time, to update, revise, supplement, and/or otherwise modify this Agreement and to impose new or additional rules, policies, terms, or conditions on your access to and/or use of Legalese. Such updates, revisions, supplements, modifications, and additional rules, policies, terms, and conditions (hereinafter collectively referred to as <b>"Additional Terms"</b>) will be effective immediately and incorporated into this Agremeent. Your continued use of Legalese following shall be deemed to constitute your acceptance of any and all such Additional Terms. All Additional Terms are hereby incorporated into this Agreement by reference.</numbered_2_firstbold>
 
-	<numbered_2_firstbold>Assignment. The rights and obligations under this Agreement may not be assigned by you without our prior consent in writing.g</numbered_2_firstbold>
+<!-- TODO: Are we able to internally (i.e. within the code) link the clause references here to the actual clauses. i.e. if we change the name of the clause, these will change accordingly? -->
+	<numbered_2_firstbold>Severance and local effect. If the <i>No Warranty</i>, <i>Limitation of Liability</i> and <i>Indemnity</i> clauses cannot be given local legal effect according to their terms, reviewing courts, mediators, or arbitrators shall apply local law that most closely approximates an absolute waiver of all civil liability in connection with Legalese. If any other provision of this Agreement or part thereof is rendered void, illegal or unenforceable by any legislation to which it is subject, it shall be rendered void, illegal or unenforceable to that extent and no further.</numbered_2_firstbold>
+
+	<numbered_2_firstbold>Assignment. The rights and obligations under this Agreement may not be assigned by you without our prior consent in writing.</numbered_2_firstbold>
 
 	<numbered_2_firstbold>Further Assurance. You shall do all such acts and things and execute and sign all such documents and instruments as may be necessary, desirable or expedient in our reasonable opinion to give effect to the terms of, and the commercial understanding of the Parties recorded in this Agreement and the documents in connection herewith.</numbered_2_firstbold>
 
-	<numbered_2_firstbold>Counterparts. This Agreement may be executed in two or more counterparts, all of which together shall constitute one and the same instrument. Any Party may enter into this Agreement by signing any such counterpart and each counterpart may be signed and executed by the Parties and shall be as valid and effectual as if executed as an original. For the avoidance of doubt, in the case of execution by way of counterparts, this Agreement shall not be deemed to be concluded until the last of such counterparts shall have been executed.</numbered_2_firstbold>
-
-	<!---The following 3 clauses should be automated fields, yes? -->
+<!---TODO:The following 3 clauses should be automated fields-->
 	<numbered_2_firstbold>Governing law. This Agreement and any dispute, controversy, proceedings or claim of whatever nature arising out of this Agreement or its formation shall be governed by and construed in accordance with the laws of Singapore.</numbered_2_firstbold>
 
-	<numbered_2_firstbold>Dispute Resolution. Notwithstanding any provisions to the contrary in this Agreement, in the event of any dispute or difference arising out of or in connection with this Agreement (including any question regarding its existence, validity or termination) whether during the continuance of this Agreement or at any time after the termination hereof, the Parties must refer the dispute for mediation at the Singapore Mediation Centre (SMC) in accordance with SMC’s Mediation Procedure in force for the time being. Either/any party may submit a request to mediate to SMC upon which the other party will be bound to participate in the mediation within 45 days thereof. Every party to the mediation must be represented by senior executive personnel, of at least the seniority of a Director or its equivalent, with authority to negotiate and settle the dispute. Unless otherwise agreed by the parties, the mediator(s) will be appointed by SMC. The mediation will take place in Singapore in the English language and the parties agree to be bound by any settlement agreement reached. If the dispute has not been settled under SMC Rules within 45 days following the filing of a Request for Mediation or within such other period as the parties may agree in writing, such dispute shall thereafter be finally settled under the Rules of Arbitration of the International Chamber of Commerce by one or more arbitrators appointed in accordance with the said Rules of Arbitration, which rules are deemed to be incorporated by reference to this clause. The arbitral tribunal shall consist of a sole arbitrator, the seat of arbitration shall be [London], and the language of the arbitration shall be English. Any award made hereunder shall be final and binding upon the Parties and judgement on such award may be entered in any court or tribunal having jurisdiction thereof. Notwithstanding the foregoing, each of the Parties reserves its right to immediately commence any interim Court action such as an injunction against any of the other Parties to enforce the terms of this Agreement in a forum of its choice. This clause shall survive the termination of this Agreement for any reason whatsoever.</numbered_2_firstbold>
+	<numbered_2_firstbold>Dispute Resolution. Notwithstanding any provisions to the contrary in this Agreement, in the event of any dispute or difference arising out of or in connection with this Agreement (including any question regarding its existence, validity or termination) whether during the continuance of this Agreement or at any time after the termination hereof, the Parties must refer the dispute for mediation at the Singapore Mediation Centre (SMC) in accordance with SMC’s Mediation Procedure in force for the time being. Either Party may submit a request to mediate to SMC upon which the other Party will be bound to participate in the mediation within 45 days thereof. Each Party to the mediation must be represented by senior executive personnel of at least the seniority of a Director or its equivalent with authority to negotiate and settle the dispute. Unless otherwise agreed by the Parties, the mediator will be appointed by SMC. The mediation will take place in Singapore in the English language and the Parties agree to be bound by any settlement agreement reached. If the dispute has not been settled under SMC Rules within 45 days following the filing of a Request for Mediation or within such other period as the Parties may agree in writing, such dispute shall thereafter be finally settled under the Rules of Arbitration of the International Chamber of Commerce by one or more arbitrators appointed in accordance with the said Rules of Arbitration, which rules are deemed to be incorporated by reference to this clause. The arbitral tribunal shall consist of a sole arbitrator, the seat of arbitration shall be Singapore, and the language of the arbitration shall be English. Any award made hereunder shall be final and binding upon the Parties and judgement on such award may be entered in any court or tribunal having jurisdiction thereof. Notwithstanding the foregoing, each of the Parties reserves its right to immediately commence any interim Court action such as an injunction against any of the other Parties to enforce the terms of this Agreement in a forum of its choice. This clause shall survive the termination of this Agreement for any reason whatsoever.</numbered_2_firstbold>
 
 	<numbered_2_firstbold>No rights to third parties. These terms control the relationship between the Parties. They do not create any third party beneficiary rights.</numbered_2_firstbold>
 
 	<chapter_header>Signature</chapter_header>
 
-	<para_1><?= data.signature_phrase || "Intending to be bound by this Agreement, you hereby execute this Agreement:" ?></para_1>
+	<para_1><?= data.signature_phrase || "Intending to be bound by this Agreement, the Parties hereby execute this Agreement:" ?></para_1>
 
 	<?!= include("inc_signature", data, data.user) ?>
 
