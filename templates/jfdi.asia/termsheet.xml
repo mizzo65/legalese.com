@@ -3,7 +3,7 @@
 <?!= include("inc_cover_jfdi", data, { }) ?>
 <Firstpage_Sidebar>
 </Firstpage_Sidebar>
-
+<? var valuation_cap = data.security_type == "equity" ? "Pre-Money Valuation" : "Valuation Cap"; ?>
 <Story_Main><chapter_header><?= data.investment_stage ? data.investment_stage+ " " : "" ?> Investment Terms &#8211; <?= data.security_type ?></chapter_header>
 
 <para_1 addnewline="true">The following is a summary of the basic terms and conditions of a proposed <?= data.security_type ?> <?= data.investment_stage ? data.investment_stage+ " " : "" ?>financing of <?!= include("inc_party", data, data.parties.company[0]) ?> (the "Company"). This term sheet is for discussion purposes only and is not binding on the Company or any prospective Investors.
@@ -47,24 +47,38 @@ The <?= data.security_type_short_plural ?> shall be interest-free.<? } ?></cell_
 <?   } ?>
 <? } ?>
 <?!= cell_l ?>Qualified Financing</cell></Cell>
+<? if (data.security_essential != "equity") { ?>
 <?!= cell_r ?>The issuing of equity securities, or securities convertible to equity<?if(data.qualified_financing_proceeds){?>,in a transaction or series of related transactions resulting in aggregate gross proceeds to the Company of at least <?= data.qualified_financing_proceeds ?>, excluding conversion of the <?=data.security_type_short_plural?> and any other indebtedness<?}?>.</cell_fl></Cell>
-<?!= cell_l ?>Conversion Price</cell></Cell>
+<? } else if (data.security_type == "Series AA") { ?>
+<?!= cell_r ?>Acquisition or IPO.</cell_fl></Cell>
+<? } ?>
+<?!= cell_l ?>Conversion</cell></Cell>
+<? if (data.security_type == "Series AA") { ?>
+<?!= cell_r ?>The shares will convert to Ordinary at a 1:1 ratio.</cell_fl></Cell>
+<? } else { ?>
 <?!= cell_r ?>The "Conversion Price" is <?if(data.discount){?>the lesser of
 <? if (data.discount != "formula") {?><?= (100*(1 - data._orig_discount)).toFixed(2) ?>% of the <?}else{?>The <?}?>per share price paid by the purchasers of securities in the Qualified Financing (the "Discounted Conversion Price")<? if (data.discount=="formula") {?> less a discount ranging between <?=data.discount_formula_start?>% and <?=data.discount_formula_cap?>%<?}?>, or
 <?}?>
-the price per share equal to <?= data.pre_money_valuation ?> divided by the aggregate number of outstanding shares of the Company's Common Stock as of immediately before the initial closing of the Qualified Financing (assuming full conversion or exercise of all convertible and exercisable securities then outstanding other than the <?=data.security_type_short_plural?>) (the "Valuation Cap").</cell_fl></Cell>
+the price per share equal to <?= data.pre_money_valuation ?> divided by the aggregate number of outstanding shares of the Company's Common Stock as of immediately before the initial closing of the Qualified Financing (assuming full conversion or exercise of all convertible and exercisable securities then outstanding other than the <?=data.security_type_short_plural?>) (the "<?=valuation_cap?>").</cell_fl></Cell>
+<? } ?>
 <?!= cell_l ?>Automatic Conversion</cell></Cell>
 <?!= cell_r ?><b>&#8230; in a Qualified Financing.</b> If the Company issues Equity Securities in a Qualified Financing, then the <?=data.security_type_short_plural?><?= data.interest > 0 ? ", and any accrued but unpaid interest thereon," :""?> will automatically convert into <?
 if (data.converts_to.match(/Ordinary Shares|Common Stock/i)) { ?>ordinary voting shares<? } else {
   if (! data.converts_to.match(/Next Round Security/i)) {  Logger.log("ERROR: unhandled \"converts_to\" in termsheet.xml template: %s", data.converts_to); }
-?>the equity securities issued pursuant to the Qualified Financing <? } ?> at the Conversion Price.
-<b>&#8230; at the Maturity Date.</b> If the <?=data.security_type_short_plural?> have not been previously converted pursuant to a Qualified Financing, then, effective upon the Maturity Date, the <?=data.security_type_short_plural?><?= data.interest > 0 ? ", and any accrued but unpaid interest thereon," :""?> will automatically convert into Equity Securities at the Valuation Cap<? if (data.maturity_conversion_discount) { ?> less <?= data.maturity_conversion_discount ?>%<?}?>.</cell_fl></Cell>
+?>the equity securities issued pursuant to the Qualified Financing <? } ?>.
+<? if (data.term) { ?>
+<b>&#8230; at the Maturity Date.</b> If the <?=data.security_type_short_plural?> have not been previously converted pursuant to a Qualified Financing, then, effective upon the Maturity Date, the <?=data.security_type_short_plural?><?= data.interest > 0 ? ", and any accrued but unpaid interest thereon," :""?> will automatically convert into Equity Securities at the <?=valuation_cap?><? if (data.maturity_conversion_discount) { ?> less <?= data.maturity_conversion_discount ?>%<?}?>.
+<? } ?>
+</cell_fl></Cell>
 <?!= cell_l ?>Optional Conversion</cell></Cell>
-<?!= cell_r ?>At any time<? if (data.has_term) { ?> prior to the Maturity Date<? } ?>, if a Qualified Financing has not occurred, the Investor may elect to convert the entire Investment Amount into Equity Securities at the Valuation Cap.</cell_fl></Cell>
+<?!= cell_r ?>At any time<? if (data.has_term) { ?> prior to the Maturity Date<? } ?>, if a Qualified Financing has not occurred, the Investor may elect to convert the entire Investment Amount into Ordinary Shares.</cell_fl></Cell>
 <?!= cell_l ?>Sale of the Company</cell></Cell>
-<?!= cell_r_addnewline ?>If a Qualified Financing has not occurred and the Company elects to consummate a sale of the Company prior to the Maturity Date, then at the election of the Investor, either</cell_fl>
-<cell_numbered_1 restart="true">the Investor shall receive a payment equal to <?= data.acquisition_preference ?> times the <?=data.security_type_short_plural?>, or
-the entire Investment Amount shall convert into Equity Securities at the Valuation Cap.</cell_numbered_1></Cell>
+<?!= cell_r_addnewline ?>If a Qualified Financing has not occurred and the Company elects to consummate a sale of the Company prior to the Maturity Date, then at the election of the Investor,<? if (data.security_type != "Series AA") { ?>
+ either<? } ?>
+</cell_fl>
+<? if (data.security_type != "Series AA") { ?><cell_numbered_1 restart="true">the Investor shall receive a payment equal to <?= data.acquisition_preference ?> times the <?=data.security_type_short_plural?>, or</cell_numbered_1>
+<? } ?>
+<cell_numbered_1>the entire Investment Amount shall convert into Equity Securities.</cell_numbered_1></Cell>
 <?!= cell_l ?>Pro-Rata Right</cell></Cell>
 <?!= cell_r ?>Investor shall hold pre-emptive rights to participate in any future issue of equity securities (or securities convertible to equity), including the Qualified Financing.</cell_fl></Cell>
 <?!= cell_l ?>Amendment and Waiver</cell></Cell>
