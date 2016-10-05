@@ -19,7 +19,7 @@
 
 <para_1>THIS INVESTMENT AGREEMENT (the “Agreement”) is today entered into by and BETWEEN:</para_1>
 
-<?!= include("inc_enumerate_parties", data, rcpts_to, { term:{"new_investor": "investor"} }) ?>
+<?!= include("inc_enumerate_parties", data, rcpts_to, { term:{"new_investor": "Series Seed Investor"} }) ?>
 
 <b_left_sidehead_nonum>Recitals</b_left_sidehead_nonum>
 The Series Seed Investors desire to subscribe for preference shares of the Company, and the Company desires to issue and allot to these shares, pursuant to the terms of this Agreement.
@@ -83,7 +83,6 @@ The Series Seed Investors desire to subscribe for preference shares of the Compa
 <para_1>The obligations of the Series Seed Investors to subscribe and purchase Shares at Closing are subject to the fulfilment or the Series Seed Investors’ waiver of each of the Conditions Precedent.</para_1>
 
 <para_1>This Agreement shall immediately terminate upon the Series Seed Investor’s notice if the relevant conditions precedent are not satisfied or waived on.</para_1>
-
 
 <numbered_1_firstbold>Subscription and Closing</numbered_1_firstbold>
 
@@ -192,7 +191,6 @@ The Series Seed Investors desire to subscribe for preference shares of the Compa
 
 <numbered_3_para>No moral rights have been asserted or are likely to be asserted which would affect the use of any of the intellectual property or business information in the Company's business.</numbered_3_para>
 
-
 <numbered_1_firstbold>Miscellaneous</numbered_1_firstbold>
 
 <numbered_2_para>Confidentiality and Publicity</numbered_2_para>
@@ -208,7 +206,6 @@ The Series Seed Investors desire to subscribe for preference shares of the Compa
 <numbered_2_para>Notices</numbered_2_para>  
 
 <para_2>All notices, requests, demands and other communications given by any of the parties shall be in writing and shall be given only by personal delivery, registered mail or courier service and shall be deemed to have been duly given when received at the addresses specified in <xref to="exp_exhibit_a"/> of this Agreement.</para_2>
-
 
 <numbered_2_para>Extensions and Waivers</numbered_2_para> 
 
@@ -258,7 +255,6 @@ The Series Seed Investors desire to subscribe for preference shares of the Compa
 
 <para_2>In witness the parties have caused this Agreement to be duly executed and delivered as of the date first above written.</para_2>
 
-
 <chapter_header xname="exp_schedule_1">Schedule 1: SHAREHOLDING STRUCTURE</chapter_header>
 
 <b_left_sidehead_nonum>Pre-investment capitalization</b_left_sidehead_nonum>
@@ -303,7 +299,6 @@ The Series Seed Investors desire to subscribe for preference shares of the Compa
 <Cell aid:ccols="1" aid:ccolwidth="70" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?!= data.capTable.investorHoldingsInRound(name, previousRound) ?></cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="70" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= f_commencement ?></cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="50" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c>Class F Shares</cell_c></Cell>
-
 
 <chapter_header xname="exp_schedule_2">Schedule 2: CLOSING RESOLUTIONS</chapter_header>
 
