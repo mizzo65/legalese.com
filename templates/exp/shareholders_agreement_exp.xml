@@ -39,7 +39,7 @@
 
 <numbered_1_firstbold>Preamble</numbered_1_firstbold>
 
-<para_1>The Company has its registered address at <?= data.company.address ?> with registered share capital of <span_smallcaps>S$</span_smallcaps><?= data.amount_raised.TOTAL ?>.</para_1>
+<para_1>The Company has its registered address at <?= data.company.address ?> with registered share capital of <span_smallcaps>S$</span_smallcaps><?= data.amount_raised.total ?>.</para_1>
 
 <numbered_2_para xname="core_business">The Company is a rental platform.</numbered_2_para>
 
