@@ -278,7 +278,7 @@ The Series Seed Investors desire to subscribe for preference shares of the Compa
 <Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?!=   data.capTable.investorHoldingsInRound(hh, previousRound) ?></cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?!=   data.capTable.investorHoldingsInRound(hh, previousRound) ?></cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?!=   data.capTable.investorHoldingsInRound(hh, previousRound) ?></cell_c></Cell>
-<? } } ?>
+<? } } } ?>
 </Table></para_1>
 <? } ?>
 
