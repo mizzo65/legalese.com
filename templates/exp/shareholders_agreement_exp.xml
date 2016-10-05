@@ -39,7 +39,7 @@
 
 <numbered_1_firstbold>Preamble</numbered_1_firstbold>
 
-<para_1>The Company has its registered address at <?= data.company.address ?> with registered share capital of <span_smallcaps>S$</span_smallcaps><?= data.amount_raised.total ?>.</para_1>
+<para_1>The Company has its registered address at <?= data.company.address ?> with registered share capital of <span_smallcaps>S$</span_smallcaps><?= data.total_amount_raised ?>.</para_1>
 
 <numbered_2_para xname="core_business">The Company is a rental platform.</numbered_2_para>
 
@@ -88,7 +88,7 @@
 <numbered_2_para>Vesting of Founders’ Shares</numbered_2_para>
 <para_2>Each Founder Shareholder shall have three years vesting beginning upon the signing of the Shareholders’ Agreement:</para_2>
 
-<para_2><?= f_unrestricted_current ?> vesting immediately, with remaining vesting monthly over the next <? f_term_months ?> months as shown in Schedule <xref to="exp_vesting_schedule"/>. In the event of an acquisition or other change of control of the Company, Founders’ Shares will vest fully.</para_2>
+<para_2><?= data.f_unrestricted_current ?> vesting immediately, with remaining vesting monthly over the next <? data.f_term_months ?> months as shown in Schedule <xref to="exp_vesting_schedule"/>. In the event of an acquisition or other change of control of the Company, Founders’ Shares will vest fully.</para_2>
 
 <para_2>This Repurchase Option shall provide that upon the resignation or termination of the employment of or engagement with a Founder (“Outgoing Founder”), with or without cause, the remaining Founders first, and then the Company second or its assignee (to the extent permissible under applicable securities law qualification) retains the option to repurchase at the lower of cost or the current fair market value any unvested shares held by the Outgoing Founder.</para_2>   
 
@@ -129,7 +129,7 @@
 <para_3>(i) securities issuable upon conversion of any of the Series Seed Preference, or as a dividend or distribution on the Series Seed Preference; (ii) securities issued upon the conversion of any debenture, warrant, option, or other convertible security; and (iii) Ordinary Shares issuable upon a stock split, stock dividend, or any subdivision of shares of Ordinary Shares</para_3>
 
 <numbered_2_para>Employee Share Options (ESOP) Scheme</numbered_2_para> 
-<para_2>The Shareholders agree that the board shall implement a share option program that will allow a committee (“the Option Committee”) to expand the current share capital with up to <?= data.parties.ESOP[%s] ?> and allocate the new shares to employees, advisors and board members.</para_2>
+<para_2>The Shareholders agree that the board shall implement a share option program that will allow a committee (“the Option Committee”) to expand the current share capital with up to <?= data.esop_reservation ?> and allocate the new shares to employees, advisors and board members.</para_2>
 
 <para_2>The Option Committee shall be formed within six months after the date of this Agreement. The Option Committee shall have two members. One member appointed by the Series Seed Investors and one by the Founders.</para_2>
 
@@ -152,7 +152,7 @@
 <numbered_1_para>Board of Directors</numbered_1_para>
 
 <numbered_2_para>Members</numbered_2_para>
-<para_2>The Board will consist of <?= data.number_directors_TOTAL ?> members. <?= data.number_directors_common ?> directors elected by holders of a majority of Ordinary Shares, <?= data.number_directors_seriesseed ?> elected by holders of a majority of Series Seed Preference Shares (the “Series Seed Director”).</para_2>
+<para_2>The Board will consist of <?= data.total_number_directors ?> members. <?= data.number_directors_common ?> directors elected by holders of a majority of Ordinary Shares, <?= data.number_directors_seriesseed ?> elected by holders of a majority of Series Seed Preference Shares (the “Series Seed Director”).</para_2>
 
 <para_2>The board members are elected at the general meeting for one year at the time. The board members will elect the chairman. All ordinary matters will be decided by a majority vote of the board. Consent Matters as specified in Schedule <xref to="exp_consent_matters"/> shall additionally require the affirmative vote of the Series Seed Director.</para_2>
 
