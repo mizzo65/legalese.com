@@ -64,10 +64,10 @@ Given that you presently hold <?= digitCommas_(numerator,0) ?> out of <?= digitC
   // using fields from the ROLES section
   
   xmLog(["running the override path"],6);
-  numerator = data.capTable.getActiveRound().sitout_shareholders[data.sitout_shareholder.name].origEntity()._orig_preemptive;
+  numerator = data._entitiesByName[data.sitout_shareholder.name]._orig_preemptive;
   denominator = data._orig_preemptive_denominator;
   
-  var numerator_formatted   = data.capTable.getActiveRound().sitout_shareholders[data.sitout_shareholder.name].origEntity().preemptive;
+  var numerator_formatted   = data._entitiesByName[data.sitout_shareholder.name].preemptive;
   var denominator_formatted = data.preemptive_denominator;
   
  ?>
