@@ -2,7 +2,7 @@
 
 <chapter_header override="startParagraph=StartParagraph.ANYWHERE">Nondisclosure Agreement</chapter_header>
 
-<para_1><span_smallcaps>This agreement is made by</span_smallcaps> this <? if (data.agreement_date) { ?><?= data.agreement_date ?><?} else {?><textvar name="Output Date" /><?}?> between:---</para_1>
+<para_1><span_smallcaps>This agreement is made</span_smallcaps> this <? if (data.agreement_date) { ?><?= data.agreement_date ?><?} else {?><textvar name="Output Date" /><?}?> between:---</para_1>
 
 <? if (data.nda_type == "unilateral") { ?>
 <parties><?!= include("inc_party", data, data.company) ?> (the "Disclosing Party"); and</parties>
